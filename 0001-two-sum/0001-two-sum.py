@@ -5,5 +5,4 @@ class Solution:
             remaining = target - nums[i]
             if remaining in prev:
                 return [i, prev[remaining]]
-            
             prev[v] = i
