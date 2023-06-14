@@ -20,41 +20,9 @@ class Solution:
 
         n1 = len(nums1)
         n2 = len(nums2)
-
         if n1 > n2:
             nums1, nums2 = nums2, nums1
             n1, n2 = n2, n1
-
-        if (n1 + n2)%2==0:
-            mid1 = (n1+n2)//2
-            mid2 = (n1+n2)//2 - 1
-            if nums1[-1] <= nums2[0]:
-                if n1-1 > mid2:
-                    return (nums1[mid1] + nums1[mid2])/2.0
-                elif n1-1 == mid2:
-                    return (nums1[mid2] + nums2[0])/2.0
-                elif n1-1 < mid2:
-                    return (nums2[mid1 - n1] + nums2[mid2 - n1])/2.0
-            elif nums2[-1] <= nums1[0]:
-                if n2-1 > mid2:
-                    return (nums2[mid2]+nums2[mid1])/2.0
-                elif n2-1==mid2:
-                    return (nums2[mid2]+nums1[0])/2.0
-                elif n2-1 < mid2:
-                    return (nums1[mid1- n2]+ nums1[mid2 - n2])/2.0
-        else:
-            mid = (n1 + n2)//2
-            if nums1[-1] <= nums2[0]:
-                if n1-1 >= mid:
-                    return nums1[mid]
-                elif n1-1 < mid:
-                    return nums2[mid - n1]
-            elif nums2[-1] <= nums1[0]:
-                if n2-1 >= mid:
-                    return nums2[mid]
-                elif n2-1 < mid:
-                    return nums1[mid-n2]
-        
         if (n1+n2)%2==0:
             l = 0
             r = n1
