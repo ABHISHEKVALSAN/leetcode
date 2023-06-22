@@ -7,11 +7,9 @@ class Solution:
             if ratings[i] > ratings[i-1]:
                 a[i] = a[i-1]+1
             i+=1
-        print(a)
         i = n - 2
         while i>=0:
             if ratings[i]>ratings[i+1]:
                 a[i] = max(a[i],a[i+1]+1)
             i-=1 
-        print(a)
         return sum(a)
