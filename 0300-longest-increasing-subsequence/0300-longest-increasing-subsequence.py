@@ -5,6 +5,8 @@ class Solution:
         for num in nums[1:]:
             if num>lss[-1]:
                 lss.append(num)
+            elif num<lss[0]:
+                lss[0]=num
             else:
                 lss[bisect_left(lss,num)] = num
         return len(lss)
