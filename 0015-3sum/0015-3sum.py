@@ -16,8 +16,8 @@ class Solution:
         nums.sort()
         for i,num1 in enumerate(nums):
             if num1<=0:
-                for num in self.two_sum(nums[i+1:],num1*-1):
-                    result.add((num1,num[0],num[1]))
+                for num2,num3 in self.two_sum(nums[i+1:],num1*-1):
+                    result.add((num1,num2,num3))
             else:
                 break
         return result
