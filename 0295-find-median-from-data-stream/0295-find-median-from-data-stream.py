@@ -1,20 +1,21 @@
-from bisect import bisect_left
+from heapq import heappush as hpush
+from heapq import heappop as hpop
+from heapq import heappushpop as hpp
 class MedianFinder:
 
     def __init__(self):
-        self.is_odd = False
-        self.arr = []
-        self.last_sort_index = 0
+        self.left = []
+        self.right = []
         
 
     def addNum(self, num: int) -> None:
-        self.arr.append(num)
-
+        if len(self.left) > len(self.right):
+            hpush(self.right,-hpp(self.left,-num))
+        else:
+            hpush(self.left,-hpp(self.right,num))
 
     def findMedian(self) -> float:
-        self.arr.sort()
-        n = len(self.arr)
-        if n%2==1:
-            return self.arr[n//2]
+        if len(self.left)>len(self.right):
+            return -self.left[0]
         else:
-            return (self.arr[n//2] + self.arr[(n//2)-1])/2.0
+            return (-self.left[0]+self.right[0])/2.0
