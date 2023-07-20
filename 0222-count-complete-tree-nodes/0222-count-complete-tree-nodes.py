@@ -8,13 +8,4 @@ class Solution:
     def countNodes(self, root: Optional[TreeNode]) -> int:
         if root is None:
             return 0
-        stack = [root]
-        count=0
-        while stack:
-            curr = stack.pop()
-            count+=1
-            if curr.left is not None:
-                stack.append(curr.left)
-            if curr.right is not None:
-                stack.append(curr.right)
-        return count
+        return 1 + self.countNodes(root.left) + self.countNodes(root.right)
