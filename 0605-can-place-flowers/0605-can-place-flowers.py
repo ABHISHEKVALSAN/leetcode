@@ -10,5 +10,7 @@ class Solution:
             if flowerbed[i-1]==flowerbed[i+1]==flowerbed[i]==0:
                 flowerbed[i]=1
                 fc+=1
+                if fc>=n:
+                    return True
             i+=1
-        return fc>=n
+        return False
