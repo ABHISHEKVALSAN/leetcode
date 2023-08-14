@@ -5,7 +5,6 @@ class Solution:
         for num in nums[:k]:
             heapq.heappush(heap, num)
         for num in nums[k:]:
-            heapq.heappush(heap, num)
-            heapq.heappop(heap)
+            heapq.heappushpop(heap, num)
         return heapq.heappop(heap)
 
